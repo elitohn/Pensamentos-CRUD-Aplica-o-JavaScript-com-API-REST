@@ -2,73 +2,100 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&height=175&color=0:0F172A,55:164E63,100:0891B2&text=Memoteca&fontColor=FFFFFF&fontSize=34&fontAlignY=38&desc=Pensamentos%20e%20API%20REST&descAlignY=61&descSize=15" alt="Capa do projeto Memoteca" width="100%" />
 
-![Tecnologia](https://img.shields.io/badge/JavaScript-0F172A?style=flat-square) ![Idioma](https://img.shields.io/badge/documentação-pt--BR-0891B2?style=flat-square) ![Tipo](https://img.shields.io/badge/projeto-de%20estudo-334155?style=flat-square)
+![Tecnologias](https://img.shields.io/badge/JavaScript%2C%20Axios%20e%20JSON%20Server-0F172A?style=flat-square) ![Idioma](https://img.shields.io/badge/documentação-pt--BR-0891B2?style=flat-square) ![Tipo](https://img.shields.io/badge/projeto-de%20estudo-334155?style=flat-square)
 
 </div>
 
-![Thumbnail](./thumb.png) 
+# Memoteca
 
-# Memoteca 
+A Memoteca é uma aplicação web para guardar pensamentos, frases e citações com autoria e data. A interface em JavaScript se comunica com uma API REST local criada com JSON Server.
 
+![Prévia da aplicação Memoteca](./thumb.png)
 
-Memoteca é um aplicativo organizador de pensamentos e frases que permite cadastrar, listar, editar e deletar pensamentos, incluindo informações como conteúdo e autoria. 
+## Funcionalidades
 
+- Cadastrar, listar, editar e excluir pensamentos;
+- Pesquisar por palavras no conteúdo ou na autoria;
+- Marcar pensamentos como favoritos;
+- Validar campos e impedir datas futuras;
+- Salvar os dados na API local, que os mantém no arquivo `backend/db.json`.
 
-## 🔨 Funcionalidades do projeto 
+## Tecnologias
 
+- HTML5 e CSS3;
+- JavaScript com módulos ES;
+- Axios para as requisições HTTP;
+- Node.js e JSON Server como API de desenvolvimento.
 
-Cadastro de pensamentos: Permite adicionar novos pensamentos à lista, inserindo informações como conteúdo e autoria. 
+O projeto também tem um [layout no Figma](https://www.figma.com/design/Sz1gmmemxqcB3amInL4Ndp/Rebrand-Memoteca-%7C-Curso-CRUD?node-id=148-26&t=FpdmfbiM1i1s6REQ-0).
 
-Listagem de pensamentos: Exibe os pensamentos cadastrados, permitindo visualizar o texto e a autoria. 
+## Como executar
 
-Edição de pensamentos: Permite editar pensamentos existentes, atualizando as informações conforme necessário. 
+Você precisa do **Node.js e npm**. O frontend carrega o Axios por CDN, então mantenha conexão com a internet durante o uso.
 
-Exclusão de pensamentos: Permite remover pensamentos da lista. 
+### 1. Baixe o projeto
 
+```bash
+git clone https://github.com/elitohn/Pensamentos-CRUD-Aplica-o-JavaScript-com-API-REST.git
+cd Pensamentos-CRUD-Aplica-o-JavaScript-com-API-REST
+```
 
-## ✔️ Técnicas e tecnologias utilizadas 
+### 2. Instale o JSON Server
 
+O `package.json` do backend define o comando de inicialização, mas não instala o JSON Server como dependência local. Instale-o globalmente:
 
-JavaScript: Linguagem de programação utilizada para desenvolver a lógica do aplicativo. 
+```bash
+npm install --global json-server
+```
 
-Fetch API: Utilizada para realizar requisições HTTP para comunicação com o servidor. 
+### 3. Inicie a API
 
-Axios: Biblioteca usada para facilitar e simplificar as requisições HTTP. 
+Em um terminal, entre na pasta `backend` e inicie o servidor:
 
-Node.js: Plataforma utilizada para executar o ambiente de desenvolvimento. J
-
-SON Server: Utilizado para simular um backend e facilitar o desenvolvimento e teste das operações CRUD. 
-
-CSS: Utilizado para estilização da interface do aplicativo. 
-
-
-## 📁 Link do Figma 
-
-
-Você pode [acessar o figma do projeto aqui](https://www.figma.com/design/Sz1gmmemxqcB3amInL4Ndp/Rebrand-Memoteca-%7C-Curso-CRUD?node-id=148-26&t=FpdmfbiM1i1s6REQ-0). 
-
-
-## 🛠️ Abrir e rodar o projeto 
-
-
-Para executar a API fake, você vai precisar do NodeJS; a versão utilizada foi a 20.12.2. 
-
-Instale o JSON Server globalmente (se ainda não estiver instalado):
-
-bash
-npm install -g json-server
-
-Para executar, abra um novo terminal e, dentro da pasta backend, execute:
-
-bash
+```bash
+cd backend
 npm start
+```
 
-Acesse o backend localmente em seu navegador: 
+A API ficará disponível em [http://localhost:3000/pensamentos](http://localhost:3000/pensamentos). Deixe esse terminal aberto.
 
-http://localhost:3000 
+### 4. Inicie o frontend
 
-Para executar o frontend, abra o projeto no Visual Studio Code. Com a extensão Live Server instalada, clique com o botão direito no arquivo index.html e selecione "Open with Live Server" no menu de contexto. 
+Em outro terminal, volte à pasta raiz do repositório e inicie um servidor estático:
 
-Acesse o frontend localmente em seu navegador: 
+```bash
+python -m http.server 5500
+```
 
-http://localhost:5500 
+No Windows, também é possível usar:
+
+```powershell
+py -m http.server 5500
+```
+
+Abra [http://localhost:5500](http://localhost:5500) no navegador. Também é possível abrir `index.html` com a extensão Live Server do VS Code.
+
+## Estrutura
+
+```text
+.
+├── assets/
+├── backend/
+│   ├── db.json
+│   └── package.json
+├── css/
+├── js/
+│   ├── api.js
+│   ├── main.js
+│   └── ui.js
+├── index.html
+└── thumb.png
+```
+
+## Observações
+
+- A API é local e serve para desenvolvimento; não há implantação de backend público.
+- A lista e as alterações são persistidas no `backend/db.json` da sua cópia do projeto.
+- Para encerrar os servidores, pressione `Ctrl+C` nos terminais correspondentes.
+
+Projeto desenvolvido durante estudos de JavaScript e operações CRUD.
